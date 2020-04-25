@@ -37,15 +37,13 @@ where b.LastName like "Mitchell"
 
 5. Find the name and ID of the artists who do not have albums. After running the query described above, two of the records returned have the same last name. Enter that name below.
 
-select a.Name,count(a.Name)
-from
-(select Artists.ArtistId,Artists.Name,Albums.AlbumId
-from Artists
-left join Albums
-on Artists.ArtistId=Albums.ArtistId
-where Albums.AlbumId is null) as a
-group by a.Name
-order by count(a.Name) asc
+select a.artistid, a.name
+
+from artists a left join albums al
+
+on a.artistid = al.artistid
+
+where al.albumid is null;c
 
 6. Use a UNION to create a list of all the employee's and customer's first names and last names ordered by the last name in descending order. After running the query described above, determine what is the last name of the 6th record? Enter it below. Remember to order things in descending order to be sure to get the correct answer.
 
