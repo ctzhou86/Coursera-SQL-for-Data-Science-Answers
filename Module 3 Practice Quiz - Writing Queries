@@ -31,15 +31,11 @@ where invoices.InvoiceId is null;
 
 4. Find the total price for each album. What is the total price for the album “Big Ones”?
 
-select sum(b.UnitPrice) as TotalPrice,b.Title as Title
-from (select a.UnitPrice as UnitPrice,albums.Title as Title
-from (select tracks.AlbumId,invoice_items.UnitPrice
+select sum(tracks.Unitprice) as "Total Price",albums.Title
 from tracks
-left join invoice_items
-on tracks.TrackId=invoice_items.TrackId) as a 
 left join albums
-on a.AlbumId=albums.AlbumId
-where albums.Title="Big Ones") as b
+on tracks.Albumid=albums.Albumid
+where albums.Title="Big Ones";
 
 5. How many records are created when you apply a Cartesian join to the invoice and invoice items table?
 
