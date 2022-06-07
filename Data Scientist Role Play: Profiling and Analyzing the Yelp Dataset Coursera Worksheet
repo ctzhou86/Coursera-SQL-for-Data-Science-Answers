@@ -1,0 +1,73 @@
+Part 1: Yelp Dataset Profiling and Understanding
+
+1. Profile the data by finding the total number of records for each of the tables below:
+
+SELECT *
+FROM (TABLE_NAME)
+
+
+2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.
+Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.	
+
+SELECT DISINCT(KEY)
+FROM (TABLE_NAME)
+
+
+3. Are there any columns with null values in the Users table? Indicate "yes," or "no."
+
+SELECT 
+-- DISPLAY SUM OF ALL NULLS FOR EACH COLUMN
+SUM(CASE WHEN id IS NULL THEN 1 ELSE 0 END) AS id_isnull,
+SUM(CASE WHEN name IS NULL THEN 1 ELSE 0 END) AS name_isnull,
+SUM(CASE WHEN review_count IS NULL THEN 1 ELSE 0 END) AS review_count_isnull,
+SUM(CASE WHEN yelping_since IS NULL THEN 1 ELSE 0 END) AS yelping_since_isnull,
+SUM(CASE WHEN useful IS NULL THEN 1 ELSE 0 END) AS useful_isnull,
+SUM(CASE WHEN funny IS NULL THEN 1 ELSE 0 END) AS funny_isnull,
+SUM(CASE WHEN cool IS NULL THEN 1 ELSE 0 END) AS cool_isnull,
+SUM(CASE WHEN fans IS NULL THEN 1 ELSE 0 END) AS fans_isnull,
+SUM(CASE WHEN average_stars IS NULL THEN 1 ELSE 0 END) AS average_stars_isnull,
+SUM(CASE WHEN compliment_hot IS NULL THEN 1 ELSE 0 END) AS compliment_hot_isnull,
+SUM(CASE WHEN compliment_more IS NULL THEN 1 ELSE 0 END) AS compliment_more_isnull,
+SUM(CASE WHEN compliment_profile IS NULL THEN 1 ELSE 0 END) AS compliment_profile_isnull,
+SUM(CASE WHEN compliment_cute IS NULL THEN 1 ELSE 0 END) AS compliment_cute_isnull,
+SUM(CASE WHEN compliment_list IS NULL THEN 1 ELSE 0 END) AS compliment_list_isnull,
+SUM(CASE WHEN compliment_note IS NULL THEN 1 ELSE 0 END) AS compliment_note_isnull,
+SUM(CASE WHEN compliment_plain IS NULL THEN 1 ELSE 0 END) AS compliment_plain_isnull,
+SUM(CASE WHEN compliment_cool IS NULL THEN 1 ELSE 0 END) AS compliment_cool_isnull,
+SUM(CASE WHEN compliment_funny IS NULL THEN 1 ELSE 0 END) AS compliment_funny_isnull,
+SUM(CASE WHEN compliment_writer IS NULL THEN 1 ELSE 0 END) AS compliment_writer_isnull,
+SUM(CASE WHEN compliment_photos IS NULL THEN 1 ELSE 0 END) AS compliment_photos_isnull
+FROM user
+
+
+4. For each table and column listed below, display the smallest (minimum), largest (maximum), and average (mean) value for the following fields:
+
+SELECT MIN(COL_NAME), MAX(COL_NAME), AVG(COL_NAME)
+FROM TABLE_NAME
+
+5. List the cities with the most reviews in descending order:
+
+
+
+6. Find the distribution of star ratings to the business in the following cities:
+
+i. Avon
+
+
+ii. Beachwood
+
+
+
+7. Find the top 3 users based on their total number of reviews:		
+
+
+
+8. Does posing more reviews correlate with more fans?
+
+
+
+9. Are there more reviews with the word "love" or with the word "hate" in them?
+
+
+
+10. Find the top 10 users with the most fans:
